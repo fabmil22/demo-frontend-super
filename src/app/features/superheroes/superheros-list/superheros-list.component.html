@@ -1,0 +1,68 @@
+<div class="container">
+  @if(showLoader){
+  <mat-progress-spinner mode="indeterminate" style="position:absolute; top:30%; left:50%"></mat-progress-spinner>
+  } @if( superheroes && superheroes.length > 0){
+
+  <div class="mat-elevation-z8">
+    <mat-form-field appearance="fill">
+      <mat-label>Buscador</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="busque por nombre"
+        #input
+      />
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource"  matSort >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>Nombre</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.name | capitalize }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="secretIdentity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Identidad secreta</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.secretIdentity | capitalize }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="superpowers">
+        <th mat-header-cell *matHeaderCellDef>Poderes</th>
+        <td mat-cell *matCellDef="let element">{{ element.superpowers }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="gotoHero(element.id)">
+            editar
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" (click)="openDialog(element.id)">delete</button>
+
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+  }
+</div>

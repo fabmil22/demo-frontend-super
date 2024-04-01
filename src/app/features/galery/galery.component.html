@@ -1,0 +1,32 @@
+
+<div class="container">
+  <div *ngIf="showLoader">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+  <div class="container-super">
+  @for (person of superheroes; track person.id) {
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-icon>info</mat-icon>
+      <mat-card-title><h1>{{person.name  | capitalize }}</h1></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     <img src="http://localhost:3000/api/v1/superheroes/img/{{person.image}}" alt="imagen de batman" >
+<div class="power">
+     <mat-chip-listbox aria-label="select a shirt size">
+      @for (power of  person.superpowers; track power) {
+      <mat-chip-option> {{power}}</mat-chip-option>
+      }
+    </mat-chip-listbox>
+  </div>
+    </mat-card-content>
+
+  </mat-card>
+}@empty {
+  <span>esta vacia la lista</span>
+}
+
+</div>
+</div>
+
+

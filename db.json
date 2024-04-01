@@ -1,0 +1,80 @@
+{
+  "superheroes": [
+    {
+      "name": "SuperWoman22",
+      "secretIdentity": "lisa Kent",
+      "superpowers": [
+        "Volar",
+        "Visión de rayos X",
+        "Superfuerza"
+      ],
+      "image": "superman222",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Batman",
+      "secretIdentity": "Bruce Wayne",
+      "superpowers": [
+        "Inteligencia",
+        "Artes marciales",
+        "Tecnología"
+      ],
+      "image": "batman"
+    },
+    {
+      "id": "3",
+      "name": "Wonder Woman",
+      "secretIdentity": "Diana Prince",
+      "superpowers": [
+        "Volar",
+        "Superfuerza",
+        "Brazaletes mágicos"
+      ],
+      "image": "wonderwoman"
+    },
+    {
+      "id": "60f4",
+      "name": "SuperWoman",
+      "secretIdentity": "lisa Kent",
+      "superpowers": [
+        "Volar",
+        "Visión de rayos X",
+        "Superfuerza"
+      ],
+      "image": "superman"
+    },
+    {
+      "id": "264b",
+      "personalData": {
+        "name": "",
+        "secretIdentity": "",
+        "superpowers": []
+      }
+    },
+    {
+      "id": "3138",
+      "personalData": {
+        "name": "cdcdc",
+        "secretIdentity": "eee",
+        "superpowers": []
+      }
+    },
+    {
+      "id": "909e",
+      "personalData": {
+        "name": "ww",
+        "secretIdentity": "ewew",
+        "superpowers": []
+      }
+    },
+    {
+      "id": "6da1",
+      "personalData": {
+        "name": "yty",
+        "secretIdentity": "yty",
+        "superpowers": null
+      }
+    }
+  ]
+}

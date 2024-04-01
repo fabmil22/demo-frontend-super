@@ -1,0 +1,17 @@
+.container{
+  display: flex;
+  justify-items: auto;
+  flex-direction: column
+
+}
+.mat-select-trigger {
+  min-width: 80vw;
+}
+
+.mat-select-panel {
+  max-height: 80vh !important;
+}
+
+mat-form-field {
+  width: 100%;
+}

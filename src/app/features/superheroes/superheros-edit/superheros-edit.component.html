@@ -1,0 +1,77 @@
+.<div class="container">
+
+
+<mat-card class="example-card">
+  <mat-card-header>
+    @if (this.edit) {
+<mat-card-title>Editar súper héroes</mat-card-title>
+} @else {
+  <mat-card-title>Crear súper héroes</mat-card-title>
+}
+
+<mat-card-subtitle>ingreso de datos del heroe:</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>
+<form [formGroup]="formSuper" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" id="name" class="form-control" formControlName="name" >
+      @if (submitted && f['name'].errors){
+      @if( f['name'].errors['required']){
+      <mat-error >este valor es requerido</mat-error>
+      }
+      @if( submitted && f['name'].errors['pattern']){
+        <mat-error >solo se permite letras</mat-error>
+        }
+    }
+    </div>
+    <div class="mb-3">
+      <label for="secretIdentity" class="form-label">Identidad secreta</label>
+      <input type="text" id="secretIdentity" class="form-control" formControlName="secretIdentity" required>
+
+        @if (submitted && f['secretIdentity'].errors){
+            @if( f['secretIdentity'].errors['required']){
+            <mat-error >este valor es requerido</mat-error>
+            }
+      }
+    </div>
+    <div class="mb-3">
+      <label for="superpowers" class="form-label">Superpoderes</label>
+
+    </div> <mat-form-field >
+      <mat-label>Selecciona varios superpoderes</mat-label>
+      <mat-select multiple  formControlName="superpowers">
+        @for (item of allSuperpowers$ | async; track item.id) {
+        <mat-option  [value]="item.skill">
+          {{ item.skill }}
+        </mat-option>
+      }
+      </mat-select>
+
+      <mat-error *ngIf="formSuper.get('superpowers')?.hasError('required')">
+        Debes seleccionar al menos un superpoder.
+      </mat-error>
+    </mat-form-field>
+<div class="mb-3">
+<label for="formFileReadonly" class="form-label">subir la imagen</label>
+<input class="form-control" type="file" id="formFileReadonly" formControlName="image" (change)="onFileSelected($event)">
+<div class="mb-6">
+  <mat-card-content>
+    <img *ngIf="imageSrc" [src]="imageSrc" alt="Imagen seleccionada">
+  </mat-card-content>
+
+</div>
+</div>
+
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+
+
+</form>
+</mat-card-content>
+</mat-card>
+
+
+</div>
+
