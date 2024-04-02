@@ -17,6 +17,6 @@ $my-theme : mat.define-light-theme((
 @include mat.all-component-themes($my-theme);
 
 body {
-  background-image: url('../../super-demo/src/assets/img/palaciofab.jpg');
+  background-image: url('../src/assets/img/palaciofab.jpg');
   background-position: center;
 }
