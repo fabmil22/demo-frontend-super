@@ -1,0 +1,11 @@
+@import '@angular/material/theming';
+
+$primary: #1976d2;
+$accent: #f44336;
+$warn: #ff9800;
+
+@include mat-core();
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
